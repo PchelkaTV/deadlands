@@ -1,0 +1,268 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Плавный переход при загрузке страницы */
+body {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    background-color: #444;
+    color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+nav {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav button {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #008cba;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav button:hover {
+    background-color: #005f5f;
+    transform: scale(1.05);
+}
+
+main {
+    padding: 20px;
+    position: relative;
+}
+
+.section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.section.active {
+    display: block;
+    opacity: 1;
+    position: relative;
+    transform: translateY(0);
+}
+
+.start-battle-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.start-battle-button:hover {
+    background-color: #005f5f;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+.controls label {
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.controls input[type="radio"] {
+    margin-right: 5px;
+}
+
+.tn-calculator input,
+.damage-calculator input,
+.tn-calculator select,
+.damage-calculator select {
+    padding: 5px;
+    margin-right: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: border-color 0.3s;
+}
+
+.tn-calculator input:focus,
+.damage-calculator input:focus,
+.tn-calculator select:focus,
+.damage-calculator select:focus {
+    border-color: #008cba;
+    outline: none;
+}
+
+.modifiers label {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.modifiers label input {
+    margin-right: 5px;
+    margin-left: 0;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #008cba;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #005f5f;
+    transform: translateY(-2px);
+}
+
+#tn-result,
+#shooting-result,
+#wounds-result {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e7f3fe;
+    border-left: 4px solid #2196F3;
+    animation: fadeInResult 0.5s forwards;
+}
+
+@keyframes fadeInResult {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    background-color: #444;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Стили для лога боя */
+#log {
+    background-color: #fff;
+    padding: 10px;
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    animation: fadeInLog 0.5s forwards;
+}
+
+@keyframes fadeInLog {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.log-entry {
+    border-bottom: 1px solid #eee;
+    padding: 5px 0;
+    font-family: monospace;
+    opacity: 0;
+    animation: fadeInEntry 0.5s forwards;
+}
+
+@keyframes fadeInEntry {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Адаптивные стили */
+@media screen and (max-width: 768px) {
+    nav button {
+        flex: 1 1 100%;
+    }
+
+    .controls label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .modifiers label {
+        flex-wrap: nowrap;
+    }
+}
+/* Стили для полоски с автором */
+.author-bar {
+    width: 100%;
+    background-color: #008cba; /* Синий цвет */
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 14px;
+    opacity: 0.8; /* Слегка прозрачная */
+}
+
+.author-bar p {
+    margin: 0;
+}
+.author-bar {
+    margin-top: 20px; /* Отступ сверху */
+}
+.author-bar {
+    opacity: 0.6; /* Больше прозрачности */
+}
+/* Стили для ссылок в футере */
+.author-bar a {
+    color: #fff; /* Белый цвет текста */
+    text-decoration: underline; /* Подчеркнуть ссылку */
+}
+
+.author-bar a:hover {
+    color: #add8e6; /* Светло-синий цвет при наведении */
+}
